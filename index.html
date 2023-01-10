@@ -1,0 +1,499 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta
+            name="description"
+            content="Documentation for the Kittn API"
+        >
+    <title>Szniorum</title>
+
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv, .highlight .vm {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #f92672;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <style media="print">
+      * {
+        -webkit-transition:none!important;
+        transition:none!important;
+      }
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sa {
+  color: #6c71c4;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+}
+    </style>
+    <link href="stylesheets/screen-c9d8fa83.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-953e3353.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all-b12a2749.js"></script>
+
+    <script>
+      $(function() { setupCodeCopy(); });
+    </script>
+  </head>
+
+  <body class="index" data-languages="[]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar-cad8cdcb.png" alt="" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo-1e815a84.png" class="logo" alt="" />
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#wstep" class="toc-h1 toc-link" data-title="Wstęp">Wstęp</a>
+          </li>
+          <li>
+            <a href="#logowanie-rejestracja" class="toc-h1 toc-link" data-title="Logowanie/Rejestracja">Logowanie/Rejestracja</a>
+          </li>
+          <li>
+            <a href="#edycja-konta" class="toc-h1 toc-link" data-title="Edycja konta">Edycja konta</a>
+          </li>
+          <li>
+            <a href="#dodawanie-postow" class="toc-h1 toc-link" data-title="Dodawanie postów">Dodawanie postów</a>
+          </li>
+          <li>
+            <a href="#dodawanie-komentarzy" class="toc-h1 toc-link" data-title="Dodawanie komentarzy">Dodawanie komentarzy</a>
+          </li>
+          <li>
+            <a href="#dodatkowe-informacje" class="toc-h1 toc-link" data-title="Dodatkowe informacje">Dodatkowe informacje</a>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+          </li>
+      </ul>
+        <ul class="toc-footer">
+            <li><a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='wstep'>Wstęp</h1>
+<p>Witamy w dokumentacji użytkownika forum internetowego Szniorum.  </p>
+
+<p><span style="font-size:smaller;">
+<em>Copyright (c) 2023, WiktorProsowicz</em></p>
+
+<p><em>Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:</em></p>
+
+<ol>
+<li><p><em>Redistributions of source code must retain the above copyright notice, this
+list of conditions and the following disclaimer.</em></p></li>
+<li><p><em>Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.</em></p></li>
+</ol>
+
+<p><em>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot;
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</em></p>
+<h1 id='logowanie-rejestracja'>Logowanie/Rejestracja</h1>
+<p></span>
+Po wejsciu na forum, pierwszą czynnością jaką należy zrobić aby móc dodawać posty, jest zalogowanie się.<br>
+Aby to zrobić, należy kliknąć w okienko które widnieje w prawym górnym rogu.
+  <img src="zaloguj_sie-f9d77bf1.png" title="Zaloguj się" alt="Alt text" /></p>
+
+<p>Następnie zostaniemym przeniesieni do formularza logowania, bądź jesli nie mamy jeszcze konta,
+możemy kliknąć w reflink na dole formularza: <strong>Zarejestruj się za darmo</strong>.</p>
+
+<p><img src="logowanie-71f65677.png" title="logowanie" alt="Alt text" /></p>
+
+<p>Wtedy zostaniemy przeniesieni do forumlarza rejestracji, który musimy wypełnić aby założyć konto.<br>
+Po wypełnieniu formularza, będziemy mogli zalogować się na nasze konto.</p>
+<h1 id='edycja-konta'>Edycja konta</h1>
+<p>Po utworzeniu konta, możemy je edytować. Należy ponownie najechać na okienko w prawym górnym rogu -
+tym razem będzię widniała tam nasza nazwa użytkownika. Po najechaniu na okienko, rozwinie się menu z którego możemy wybrać: 
+* Mój profil
+* Wyloguj</p>
+
+<p>Wybieramy pierwszą opcje. </p>
+
+<p><img src="konto_opcje-dca6be1b.png" title="Opcje konta" alt="Alt text" /></p>
+
+<p>Zostajemy przeniesieni do panelu naszego konta.</p>
+
+<p><img src="edycja_konta-7f786ce2.png" title="Panel konta" alt="Alt text" />
+W panelu wyświetlają się podstawowe informacje na temat naszego konta.<br>
+Aby je edytować, należy kliknąć w ikonke <em>trybiku</em> w prawym górnym rogu. Zostaniemy przeniesieni
+do panelu edycji, gdzie możemy edytować nasz <strong>opis</strong> lub <strong>zmienić hasło</strong>.  </p>
+
+<p>Dodatkowo, możemy dodać zdjęcie profilowe naszego konta. Wystarczy, że będziemy je mieć u siebie lokalnie.
+Aby to zrobić, należy kliknąć w przycisk: <strong>Wybierz zdjęcie profilowe</strong>.
+Po wybraniu należy zatwierdzić przyciskiem: <strong>Zastosuj</strong> - zostanie ono wtedy skopiowane do bazy danych 
+i zapisane jako nasze zdjęcie.</p>
+<h1 id='dodawanie-postow'>Dodawanie postów</h1>
+<p><span style="font-size:smaller;">
+Aby dodać post należy być zalogowanym użytkownikiem.
+</span></p>
+
+<p>Aby dodać post, należy wejść do panelu naszego konta (krok opisany wyżej: <strong>Edycja konta</strong>).<br>
+Następnie, należy kliknąć w przycisk <strong>Dodaj nowy post</strong>, zostanie przeniesieni do panelu tworzenia nowego postu.  </p>
+
+<p><img src="dodawanie_postu-e56a2b72.png" title="Dodawanie postu" alt="Alt text" />
+Aby dodać post należy:
+* wybrać kategorie
+* dodać tytuł postu
+* dodać treść postu
+* (opcjonalnie) dodać tagi oddzielone spacją
+Na koniec wystarczy zapisać post.</p>
+<h1 id='dodawanie-komentarzy'>Dodawanie komentarzy</h1>
+<p><span style="font-size:smaller;">
+Aby dodać komentarz pod postem należy być zalogowanym użytkownikiem.
+</span></p>
+
+<p>Aby dodać komentarz musimy wejść w jakiś post, następnie w dolnej części postu umieszczamy treść
+komentarza i klikamy ikonkę wyślij w prawym dolnym rogu.<br>
+Dodatkowo jako autor postu możemy go usunąć lub edytować.</p>
+
+<p><img src="post-fb739987.png" title="post" alt="Alt text" /></p>
+<h1 id='dodatkowe-informacje'>Dodatkowe informacje</h1>
+<ul>
+<li>Na forum mamy dostępną wyszukiwarkę z której możemy korzystać szukająć po tytułach postów lub kategoriach</li>
+<li>Z lewej strony panelu głównego mamy dostępne najpopularniejsze kategorie, które możemy wybrać klikając w nie</li>
+<li>Aby przeglądać posty nie trzeba zakładać konta</li>
+<li>Możemy &quot;lajkować&quot; posty, dzięki czemu bedą one miały większy &quot;zasięg&quot;</li>
+<li>Możemy również &quot;lajkować&quot; komentarze</li>
+</ul>
+<h1 id='errors'>Errors</h1>
+<aside class="notice">
+This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
+</aside>
+
+<p>The Kittn API uses the following error codes:</p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request -- Your request is invalid.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized -- Your API key is wrong.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found -- The specified kitten could not be found.</td>
+</tr>
+<tr>
+<td>405</td>
+<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
+</tr>
+<tr>
+<td>406</td>
+<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
+</tr>
+<tr>
+<td>410</td>
+<td>Gone -- The kitten requested has been removed from our servers.</td>
+</tr>
+<tr>
+<td>418</td>
+<td>I&#39;m a teapot.</td>
+</tr>
+<tr>
+<td>429</td>
+<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+      </div>
+    </div>
+  </body>
+</html>
