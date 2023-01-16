@@ -57,6 +57,7 @@ Projekt został podzielony na poszczególne katalogi typowe dla rozwiązań webo
 |  -- style  
 *.php
 
-</pre>
+</pre>  
+
 Myślę, że struktura projektu jest na tyle wymowna, że nie ma czego tutaj omawiać.
 
